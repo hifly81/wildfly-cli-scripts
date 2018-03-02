@@ -5,7 +5,7 @@
 #date            :20180402
 #version         :0.1
 #usage		 :bash domain_restart_required.sh <subsystem> <controller_host> <controller_host_port>
-#notes           :jboss cli is required to execute this script
+#notes           :jboss cli is required to execute this script and ${JBOSS_HOME}
 #==============================================================================
 
 subsystem=$1
@@ -14,7 +14,7 @@ profile_name=Example
 JBOSS_CONTROLLER=$2
 JBOSS_CONTR_PORT=$3
 
-CLI_HOME=/usr/local/Jboss/jboss-eap-7.0/bin/
+CLI_HOME=${JBOSS_HOME}/bin/
 
 if [ $# -ne 3 ]; then
     echo "Usage: ./domain_restart_required.sh datasource|xadatasource|jms-resource-adapter|jms-resource-adapter-connection-definitions|jms-resource-adapter-config-properties|jms-bridge|jms-bridge-connection-factory|property|mail|log-periodic-rotating|log-periodic-size-rotating|log-size-rotating|log jboss_controller jboss_controller_port"
